@@ -44,10 +44,8 @@ contracts/artifacts/
 cache/
 artifacts/
 
-# Models & Large Checkpoints
-# Allow models directory structure but exclude heavy binary dumps if needed
-model/models/*.pkl
-model/models/*.json
+# Models
+# Model artifacts (<200KB) are tracked for zero-friction cloud deployment
 
 # IDEs
 .idea/

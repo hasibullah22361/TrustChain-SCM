@@ -41,7 +41,11 @@ def get_model_and_preprocessor():
     global _cached_model, _cached_preprocessor
     if _cached_model is None:
         if not MODEL_PATH.exists():
-            raise FileNotFoundError(f"Model file not found at {MODEL_PATH}. Train the model first.")
+            try:
+                from model.train_model import train_and_evaluate_models
+                train_and_evaluate_models()
+            except Exception as ex:
+                raise FileNotFoundError(f"Model file not found and auto-training failed: {ex}")
         _cached_model = joblib.load(MODEL_PATH)
     if _cached_preprocessor is None:
         _cached_preprocessor = load_preprocessor()

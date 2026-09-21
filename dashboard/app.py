@@ -33,6 +33,12 @@ from model.explain import explain_transaction_risk
 from listener.simulator import simulator
 from listener.blockchain_config import RPC_URL, CONTRACT_ADDRESS, DEMO_MODE
 
+# Ensure database is initialized on startup if deployed to a fresh container
+try:
+    db.init_db(seed=True)
+except Exception:
+    pass
+
 # Custom CSS for modern glassmorphism, responsive cards, and clean typography
 st.markdown("""
 <style>

@@ -1,0 +1,15 @@
+streamlit>=1.35.0
+plotly>=5.22.0
+scikit-learn>=1.4.0
+xgboost>=2.0.0
+shap>=0.45.0
+pandas>=2.2.0
+numpy>=1.26.0
+web3>=6.15.0
+sqlalchemy>=2.0.0
+psycopg[binary]>=3.1.0
+python-dotenv>=1.0.0
+requests>=2.31.0
+pydantic>=2.6.0
+fastapi>=0.110.0
+uvicorn>=0.28.0

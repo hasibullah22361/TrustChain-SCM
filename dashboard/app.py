@@ -421,8 +421,16 @@ elif menu_selection == "📑 Transactions Ledger":
                 return "color: #10B981; font-weight: bold;"
             return ""
 
+        styler = filtered[display_cols].style
+        if hasattr(styler, "map"):
+            styled_df = styler.map(style_risk, subset=["risk_level"])
+        elif hasattr(styler, "applymap"):
+            styled_df = styler.applymap(style_risk, subset=["risk_level"])
+        else:
+            styled_df = filtered[display_cols]
+
         st.dataframe(
-            filtered[display_cols].style.applymap(style_risk, subset=["risk_level"]),
+            styled_df,
             use_container_width=True,
             height=450
         )
